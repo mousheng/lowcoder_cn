@@ -303,7 +303,7 @@ const TabbedContainer = (props: TabbedContainerProps) => {
           props.onEvent("change");
         }
       }}
-      onTabClick={onTabClick}
+      // onTabClick={onTabClick}
       animated
       $isMobile={isMobile}
       // tabBarGutter={32}
