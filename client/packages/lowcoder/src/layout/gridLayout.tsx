@@ -181,7 +181,7 @@ class GridLayout extends React.Component<GridLayoutProps, GridLayoutState> {
         const ops = [...this.state.ops as any[]];
         const [firstOp] = ops;
         const { droppingItem } = this.props;
-        if(
+        if (
           ops.length === 1
           && firstOp.type === 'DELETE_ITEM'
           && firstOp.key === droppingItem?.i
@@ -399,9 +399,11 @@ class GridLayout extends React.Component<GridLayoutProps, GridLayoutState> {
     // log.debug("onHeightChange. i: ", i, " h: ", h, " ops: ", this.state.ops);
     // const ops = layoutOpUtils.push(this.state.ops, stickyItemOp(i, { h }));
     // this.setState({ ops });
-    if (this.state.changedHs?.[i] !== h) {
+    if (this.state?.changedHs?.[i] !== h) {
       const changedHeights = { ...this.state.changedHs, [i]: h };
-      this.setState({ changedHs: changedHeights });
+      setTimeout(() => {
+        this.setState({ changedHs: changedHeights });
+      }, 1);
     }
   };
 
@@ -1041,7 +1043,7 @@ class GridLayout extends React.Component<GridLayoutProps, GridLayoutState> {
         >
           <div style={contentStyle}>
             {showGridLines && this.gridLines()}
-            {mounted && 
+            {mounted &&
               layouts.map((item) => {
                 const zIndex = item.pos !== undefined
                   ? (maxLayoutPos - item.pos) + 1
