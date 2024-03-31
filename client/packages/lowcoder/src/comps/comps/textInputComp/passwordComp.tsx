@@ -13,6 +13,7 @@ import { LabelControl } from "../../controls/labelControl";
 import { UICompBuilder, withDefault } from "../../generators";
 import { FormDataPropertyView } from "../formComp/formDataConstants";
 import {
+  fixOldInputCompData,
   getStyle,
   inputRefMethods,
   TextInputBasicSection,
@@ -40,6 +41,7 @@ import { hasIcon } from "comps/utils";
 import { RefControl } from "comps/controls/refControl";
 import React, { useContext } from "react";
 import { EditorContext } from "comps/editorState";
+import { migrateOldData } from "comps/generators/simpleGenerators";
 import { RegexControl } from "@lowcoder-ee/index.sdk";
 
 const PasswordStyle = styled(InputPassword)<{
@@ -48,7 +50,7 @@ const PasswordStyle = styled(InputPassword)<{
   ${(props) => props.$style && getStyle(props.$style)}
 `;
 
-const PasswordTmpComp = (function () {
+let PasswordTmpComp = (function () {
   const childrenMap = {
     ...textInputChildren,
     viewRef: RefControl<InputRef>,
@@ -112,6 +114,8 @@ const PasswordTmpComp = (function () {
     })
     .build();
 })();
+
+PasswordTmpComp = migrateOldData(PasswordTmpComp, fixOldInputCompData);
 
 const PasswordTmp2Comp = withMethodExposing(PasswordTmpComp, inputRefMethods);
 

@@ -140,7 +140,7 @@ export const ContainerBaseComp = (function () {
     props.container.showHeader = false;
     // 注入容器参数
     props.container.style = Object.assign(props.container.style, {
-      containerbodypadding: props.style.containerbodypadding,
+      CONTAINER_BODY_PADDING: props.style.containerBodyPadding,
       border: '#00000000',
       background: props.style.background,
     })

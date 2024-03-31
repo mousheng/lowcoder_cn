@@ -319,7 +319,7 @@ export { ReactComponent as AvatarGroupIcon } from "icons/icon-comp-avatar-group.
 export { ReactComponent as TimerIcon } from "icons/icon-comp-timer.svg";
 export { ReactComponent as StepsIcon } from "icons/icon-comp-step.svg";
 export { ReactComponent as FontFamilyIcon } from "./remix/font-sans-serif.svg";
-export { ReactComponent as TextWeigthIcon } from "./remix/bold.svg";
+export { ReactComponent as TextWeightIcon } from "./remix/bold.svg";
 export { ReactComponent as BorderWidthIcon } from "./remix/expand-width-line.svg";
 export { ReactComponent as LeftInfoLine } from "./remix/information-line.svg";
 export { ReactComponent as LeftInfoFill } from "./remix/information-fill.svg";

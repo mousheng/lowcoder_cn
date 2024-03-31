@@ -172,7 +172,7 @@ let TmpModalComp = (function () {
                 items={gridItemCompToGridItems(items)}
                 autoHeight={props.autoHeight}
                 minHeight={paddingValues ? DEFAULT_HEIGHT - paddingValues[0] * 2 + "px" : ""}
-                containerPadding={paddingValues ? [paddingValues[0], paddingValues[1]] : [0, 0]}
+                containerPadding={paddingValues ? [paddingValues[0] ?? 0, paddingValues[1] ?? 0] : [24,24]}
                 hintPlaceholder={HintPlaceHolder}
               />
             </Modal>

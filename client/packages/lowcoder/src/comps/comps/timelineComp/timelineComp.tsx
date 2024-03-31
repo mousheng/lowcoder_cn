@@ -146,7 +146,7 @@ const TimelineComp = (
     color: value?.color,
     dot: icons[index] || "",
     label: (
-      <span style={{ color: value?.lableColor || style?.lableColor }}>
+      <span style={{ color: value?.labelColor || style?.labelColor }}>
         {value?.label}
       </span>
     ),

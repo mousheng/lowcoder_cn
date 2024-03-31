@@ -399,12 +399,20 @@ class GridLayout extends React.Component<GridLayoutProps, GridLayoutState> {
     // log.debug("onHeightChange. i: ", i, " h: ", h, " ops: ", this.state.ops);
     // const ops = layoutOpUtils.push(this.state.ops, stickyItemOp(i, { h }));
     // this.setState({ ops });
-    if (this.state?.changedHs?.[i] !== h) {
-      const changedHeights = { ...this.state.changedHs, [i]: h };
-      setTimeout(() => {
-        this.setState({ changedHs: changedHeights });
-      }, 1);
-    }
+    // 延迟设置高度
+    setTimeout(() => {
+      if (this.state.changedHs?.[i] !== h) {
+        this.setState((prevState) => {
+          return {
+            ...prevState,
+            changedHs: {
+              ...prevState.changedHs,
+              [i]: h,
+            }
+          }
+        })
+      }
+    }, 1);
   };
 
   processGridItem(

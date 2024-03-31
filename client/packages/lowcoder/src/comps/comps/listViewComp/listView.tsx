@@ -220,7 +220,7 @@ export function ListView(props: Props) {
       <ListViewWrapper $style={style} $paddingWidth={paddingWidth}>
         <BodyWrapper ref={ref} $autoHeight={autoHeight} showLastLine={showLastLine} $style={style}>
           {scrollbars ? (
-            <ScrollBar style={{ height: autoHeight ? "auto" : "100%", margin: "0px", padding: "0px" }}>
+            <ScrollBar style={{ height: autoHeight ? "auto" : "100%", margin: "0px", padding: "0px" }}  hideScrollbar={!scrollbars}>
               <>{<ReactResizeDetector onResize={(width?: number, height?: number) => { if (height) setListHeight(height); }} observerOptions={{ box: "border-box" }} >
                 <div style={{ height: autoHeight ? "auto" : "100%" }}>{renders}</div>
               </ReactResizeDetector>}</>
