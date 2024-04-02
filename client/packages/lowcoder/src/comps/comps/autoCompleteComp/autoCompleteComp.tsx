@@ -49,9 +49,13 @@ import {
   autoCompleteRefMethods,
   autoCompleteType,
   autocompleteIconColor,
-  componentSize,
+  FirstPinyinOption,
+  AllPinyinOption,
 } from "./autoCompleteConstants";
-import { BaseOptionType } from "antd/es/select";
+import { BaseOptionType, DefaultOptionType } from "antd/es/select";
+import { pinyin } from 'pinyin-pro';
+import { FilterFunc } from "rc-select/lib/Select";
+
 
 const InputStyle = styled(Input) <{ $style: InputLikeStyleType }>`
   
@@ -198,77 +202,60 @@ let AutoCompleteCompBase = (function () {
       props.onEvent("submit");
     }
 
-    const filterOption = (inputValue: any, option: any) => {
+    const filterOption: FilterFunc<DefaultOptionType | BaseOptionType> = (inputValue: string, option?: BaseOptionType) => {
+      var InputValueLowerCase = inputValue.toLowerCase()
       if (ignoreCase) {
         if (
-          option?.label &&
-          option?.label
-            .toUpperCase()
-            .indexOf(inputValue.toUpperCase()) !== -1
+          option!.label
+            .toLowerCase()
+            .indexOf(InputValueLowerCase) !== -1
         )
           return true;
       } else {
-        if (option?.label && option?.label.indexOf(inputValue) !== -1)
+        if (option!.label.indexOf(inputValue) !== -1)
           return true;
       }
       if (
         chineseEnv &&
         searchFirstPY &&
-        option?.label &&
-        option.label
-          .spell("first")
-          .toString()
-          .toLowerCase()
-          .indexOf(inputValue.toLowerCase()) >= 0
+        pinyin(option!.label, FirstPinyinOption)
+
+          .indexOf(InputValueLowerCase) >= 0
       )
         return true;
       if (
         chineseEnv &&
         searchCompletePY &&
-        option?.label &&
-        option.label
-          .spell()
-          .toString()
-          .toLowerCase()
-          .indexOf(inputValue.toLowerCase()) >= 0
+        pinyin(option!.label, AllPinyinOption)
+          .indexOf(InputValueLowerCase) >= 0
       )
         return true;
       if (!searchLabelOnly) {
         if (ignoreCase) {
           if (
-            option?.value &&
-            option?.value
-              .toUpperCase()
-              .indexOf(inputValue.toUpperCase()) !== -1
+            option!.value
+              .toLowerCase()
+              .indexOf(InputValueLowerCase) !== -1
           )
             return true;
         } else {
           if (
-            option?.value &&
-            option?.value.indexOf(inputValue) !== -1
+            option!.value.indexOf(inputValue) !== -1
           )
             return true;
         }
         if (
           chineseEnv &&
           searchFirstPY &&
-          option?.value &&
-          option.value
-            .spell("first")
-            .toString()
-            .toLowerCase()
-            .indexOf(inputValue.toLowerCase()) >= 0
+          pinyin(option!.value, FirstPinyinOption)
+            .indexOf(InputValueLowerCase) >= 0
         )
           return true;
         if (
           chineseEnv &&
           searchCompletePY &&
-          option?.value &&
-          option.value
-            .spell()
-            .toString()
-            .toLowerCase()
-            .indexOf(inputValue.toLowerCase()) >= 0
+          pinyin(option!.value, AllPinyinOption)
+            .indexOf(InputValueLowerCase) >= 0
         )
           return true;
       }
@@ -279,7 +266,6 @@ let AutoCompleteCompBase = (function () {
     return props.label({
       required: props.required,
       children: (
-
         <AutoCompleteStyle
           $style={props.style}
           disabled={props.disabled}
@@ -318,7 +304,7 @@ let AutoCompleteCompBase = (function () {
 
       ),
       style: props.style,
-      // ...validateState,
+      ...validateState,
     });
   })
     .setPropertyViewFn((children) => {

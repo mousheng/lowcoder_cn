@@ -15,6 +15,9 @@ export const autoCompleteRefMethods = [
   ...refMethods<InputRef>([focusWithOptions, blurMethod, selectMethod, setSelectionRangeMethod]),
 ];
 
+export const FirstPinyinOption: any = { separator: '', toneType: 'none', pattern: 'first' }
+export const AllPinyinOption: any = { separator: '', toneType: 'none' }
+
 
 export type autoCompleteDataTYPE = {
   value: string;
@@ -76,10 +79,10 @@ export const itemsDataTooltip = (
 );
 
 export const autoCompleteDate = [
-  {value: '1-BeiJing',label: '北京'},
-  {value: '2-ShangHai',label: '上海'},
-  {value: '3-GuangDong',label: '广东'},
-  {value: '4-ShenZhen',label: '深圳'},
+  { value: '1-BeiJing', label: '北京' },
+  { value: '2-ShangHai', label: '上海' },
+  { value: '3-GuangDong', label: '广东' },
+  { value: '4-ShenZhen', label: '深圳' },
 ];
 
 export function convertAutoCompleteData(data: any) {
@@ -98,15 +101,15 @@ function checkDataNodes(
 }
 export function checkUserInfoData(data: any) {
   check(data?.name, ["string"], "name")
-  check(data?.avatar, ["string","undefined"], "avatar")
+  check(data?.avatar, ["string", "undefined"], "avatar")
   return data
 }
 
 export function checkMentionListData(data: any) {
-  if(data === "") return {}
-  for(const key in data) {
-    check(data[key], ["array"], key,(node)=>{
-      check(node, ["string"], );
+  if (data === "") return {}
+  for (const key in data) {
+    check(data[key], ["array"], key, (node) => {
+      check(node, ["string"],);
       return node
     })
   }
