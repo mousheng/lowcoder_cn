@@ -1,4 +1,6 @@
-import { ConfigProvider, Dropdown, Menu } from "antd";
+import { default as Menu } from "antd/es/menu";
+import { default as Dropdown } from "antd/es/dropdown";
+import { default as DropdownButton } from "antd/es/dropdown/dropdown-button";
 import { BoolControl } from "comps/controls/boolControl";
 import { BoolCodeControl, StringControl } from "comps/controls/codeControl";
 import { ButtonStyleType } from "comps/controls/styleControlConstants";
@@ -22,7 +24,7 @@ import {
 import { IconControl } from "@lowcoder-ee/index.sdk";
 
 
-const DropdownButton = styled(Dropdown.Button)`
+const StyledDropdownButton = styled(DropdownButton)`
   width: 100%;
   
   .ant-btn-group {
@@ -33,7 +35,6 @@ const DropdownButton = styled(Dropdown.Button)`
 
 const LeftButtonWrapper = styled.div<{ $buttonStyle: ButtonStyleType }>`
   width: calc(100%);
-  height: 32px;
   ${(props) => `margin: ${props.$buttonStyle.margin};`}
   margin-right: 0;
   .ant-btn span {
@@ -43,8 +44,9 @@ const LeftButtonWrapper = styled.div<{ $buttonStyle: ButtonStyleType }>`
   
   .ant-btn {
     ${(props) => getButtonStyle(props.$buttonStyle)}
+    border: ${(props) => `${props.$buttonStyle.borderWidth} solid ${props.$buttonStyle.border};`};
     margin: 0 !important;
-    // height: 100%;
+    height: 100%;
     &.ant-btn-default {
       margin: 0 !important;
       ${(props) => `border-radius: ${props.$buttonStyle.radius} 0 0 ${props.$buttonStyle.radius};`}
@@ -63,19 +65,25 @@ const LeftButtonWrapper = styled.div<{ $buttonStyle: ButtonStyleType }>`
 `;
 
 const RightButtonWrapper = styled.div<{ $buttonStyle: ButtonStyleType }>`
-  width: 32px;
-  height: 32px;
   ${(props) => `margin: ${props.$buttonStyle.margin};`}
-  margin-left: -1px;
+  margin-left: ${props => props.$buttonStyle.borderWidth === '0px' ? '1px' : '0px'};
   .ant-btn {
-    ${(props) => getButtonStyle(props.$buttonStyle)}
+    border: ${(props) => `${props.$buttonStyle.borderWidth} solid ${props.$buttonStyle.border};`};
+    border-left-width: 0px;
     margin: 0 !important;
     height: 100%;
     &.ant-btn-default {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       margin: 0 !important;
       ${(props) => `border-radius: 0 ${props.$buttonStyle.radius} ${props.$buttonStyle.radius} 0;`}
+      ${(props) => `background-color: ${props.$buttonStyle.background};`}
     }
-    width: 100%;
+    ${(props) => `color: ${props.$buttonStyle.text};`}
+    ${(props) => `padding: ${props.$buttonStyle.padding};`}
+    ${(props) => `font-size: ${props.$buttonStyle.textSize};`}
+    ${(props) => `font-style: ${props.$buttonStyle.fontStyle};`}
   }
 `;
 
@@ -86,7 +94,7 @@ const DropdownTmpComp = (function () {
     options: DropdownOptionControl,
     disabled: BoolCodeControl,
     onEvent: ButtonEventHandlerControl,
-    style: withDefault(ButtonStyleControl, {border: "#FFFFFF"}),
+    style: withDefault(ButtonStyleControl, { border: "#FFFFFF" }),
     icon: withDefault(IconControl, "/icon:antd/ellipsisoutlined"),
   };
   return new UICompBuilder(childrenMap, (props) => {
@@ -97,6 +105,7 @@ const DropdownTmpComp = (function () {
       .map((option, index) => ({
         title: option.label,
         label: option.label,
+        style: { padding: props.style.padding },
         key: option.label + " - " + index,
         disabled: option.disabled,
         icon: hasIcon && <span>{option.prefixIcon}</span>,
@@ -116,46 +125,36 @@ const DropdownTmpComp = (function () {
     return (
       <ButtonCompWrapper disabled={props.disabled}>
         {props.onlyMenu ? (
-          <Dropdown disabled={props.disabled} dropdownRender={() => menu}>
+          <Dropdown
+            disabled={props.disabled}
+            dropdownRender={() => menu}
+          >
             <Button100 $buttonStyle={props.style} disabled={props.disabled}>
               {props.text || " " /* Avoid button disappearing */}
             </Button100>
           </Dropdown>
         ) : (
-          <ConfigProvider
-            theme={{
-              token: {
-                colorBgBase: props.style.background,
-                colorText: props.style.text,
-                colorBorder: props.style.border,
-              },
-            }}
+          <StyledDropdownButton
+            icon={props.icon}
+            disabled={props.disabled}
+            dropdownRender={() => menu}
+            onClick={() => props.onEvent("click")}
+            buttonsRender={([left, right]) => [
+              <LeftButtonWrapper $buttonStyle={props.style}>
+                {React.cloneElement(left as React.ReactElement<any, string>, {
+                  disabled: props.disabled,
+                })}
+              </LeftButtonWrapper>,
+              <RightButtonWrapper $buttonStyle={props.style}>
+                {React.cloneElement(right as React.ReactElement<any, string>, {
+                  disabled: props.disabled,
+                })}
+              </RightButtonWrapper>,
+            ]}
           >
-            <DropdownButton
-              icon={props.icon}
-              disabled={props.disabled}
-              dropdownRender={() => menu}
-              onClick={() => props.onEvent("click")}
-              buttonsRender={([left, right]) => [
-                <LeftButtonWrapper $buttonStyle={props.style}>
-                  {React.cloneElement(left as React.ReactElement<any, string>, {
-                    disabled: props.disabled,
-                  })}
-                </LeftButtonWrapper>,
-                <RightButtonWrapper $buttonStyle={props.style}>
-                  {React.cloneElement(
-                    right as React.ReactElement<any, string>,
-                    {
-                      disabled: props.disabled,
-                    }
-                  )}
-                </RightButtonWrapper>,
-              ]}
-            >
-              {/* Avoid button disappearing */}
-              {!props.text || props.text?.length === 0 ? " " : props.text}
-            </DropdownButton>
-          </ConfigProvider>
+            {/* Avoid button disappearing */}
+            {!props.text || props.text?.length === 0 ? " " : props.text}
+          </StyledDropdownButton>
         )}
       </ButtonCompWrapper>
     );
@@ -164,35 +163,15 @@ const DropdownTmpComp = (function () {
       <>
         <Section name={sectionNames.basic}>
           {children.options.propertyView({})}
-          {children.text.propertyView({ label: trans("text") })}
           {children.icon.propertyView({ label: trans("icon") })}
-          {children.onlyMenu.propertyView({ label: trans("dropdown.onlyMenu") })}
         </Section>
 
         {(useContext(EditorContext).editorModeStatus === "logic" || useContext(EditorContext).editorModeStatus === "both") && (
           <><Section name={sectionNames.interaction}>
-              {!children.onlyMenu.getView() && children.onEvent.getPropertyView()}
-              {disabledPropertyView(children)}
-              {hiddenPropertyView(children)}
-            </Section>
-          </>
-        )}
-
-        {(useContext(EditorContext).editorModeStatus === "layout" || useContext(EditorContext).editorModeStatus === "both") && (
-          <>
-            <Section name={sectionNames.layout}>
-              {children.text.propertyView({ label: trans("label") })}
-              {children.onlyMenu.propertyView({ label: trans("dropdown.onlyMenu") })}
-            </Section>
-            <Section name={sectionNames.style}>{children.style.getPropertyView()}</Section>
-          </>
-        )}
-        {(useContext(EditorContext).editorModeStatus === "logic" || useContext(EditorContext).editorModeStatus === "both") && (
-          <><Section name={sectionNames.interaction}>
-              {!children.onlyMenu.getView() && children.onEvent.getPropertyView()}
-              {disabledPropertyView(children)}
-              {hiddenPropertyView(children)}
-            </Section>
+            {!children.onlyMenu.getView() && children.onEvent.getPropertyView()}
+            {disabledPropertyView(children)}
+            {hiddenPropertyView(children)}
+          </Section>
           </>
         )}
 
