@@ -1,6 +1,5 @@
 import "comps/comps/layout/navLayout";
 import "comps/comps/layout/mobileTabLayout";
-import cnchar from "cnchar";
 import { ModalComp } from "comps/hooks/modalComp";
 import { ButtonComp } from "./comps/buttonComp/buttonComp";
 import { DropdownComp } from "./comps/buttonComp/dropdownComp";
@@ -839,9 +838,7 @@ var uiCompMap: Registry = mergeObject({
     description: trans("uiComp.autoCompleteCompDesc"),
     categories: ["forms","collaboration"],
     icon: AutoCompleteCompIcon,
-    keywords: cnchar
-      .spell(trans("uiComp.autoCompleteCompName"), "first", "low")
-      .toString(),
+    keywords: trans("uiComp.autoCompleteCompKeywords"),
     comp: AutoCompleteComp,
     layoutInfo: {
       w: 6,

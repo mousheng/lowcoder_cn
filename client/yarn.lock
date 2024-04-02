@@ -6447,22 +6447,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cnchar-types@npm:^3.2.5":
-  version: 3.2.5
-  resolution: "cnchar-types@npm:3.2.5"
-  checksum: fbbe186b03c20c50499d37027ae3fbeea695d4f2bd6144baf55a35e890f892ae59d17e1b6918c13addf5f134c8e28dba490a2ad2a2f79cf0eb542b0b3c3343cb
-  languageName: node
-  linkType: hard
-
-"cnchar@npm:^3.2.4":
-  version: 3.2.5
-  resolution: "cnchar@npm:3.2.5"
-  dependencies:
-    cnchar-types: ^3.2.5
-  checksum: b12317386642a04b41f791631d7af25cfaa9251572083b102c684a786ac280c61dedcfab31e870acaa1be4498580f1794725ff965c40e9e2fe1fcfde99ef6e1b
-  languageName: node
-  linkType: hard
-
 "co@npm:^4.6.0":
   version: 4.6.0
   resolution: "co@npm:4.6.0"
@@ -12223,7 +12207,6 @@ __metadata:
     axios: ^1.6.2
     buffer: ^6.0.3
     clsx: ^2.0.0
-    cnchar: ^3.2.4
     copy-to-clipboard: ^3.3.3
     core-js: ^3.25.2
     dhtmlx-gantt: ^8.0.6
@@ -12248,6 +12231,7 @@ __metadata:
     moment: ^2.29.4
     numbro: ^2.3.6
     papaparse: ^5.3.2
+    pinyin-pro: ^3.19.6
     rc-trigger: ^5.3.1
     react: ^18.2.0
     react-colorful: ^5.5.1
@@ -14018,6 +14002,13 @@ __metadata:
   version: 4.0.1
   resolution: "pify@npm:4.0.1"
   checksum: 9c4e34278cb09987685fa5ef81499c82546c033713518f6441778fbec623fc708777fe8ac633097c72d88470d5963094076c7305cafc7ad340aae27cfacd856b
+  languageName: node
+  linkType: hard
+
+"pinyin-pro@npm:^3.19.6":
+  version: 3.19.6
+  resolution: "pinyin-pro@npm:3.19.6"
+  checksum: dc801ebe86d1323469d2009212b502c7ac22339f0b0eb6e3864b723acfc6f43dceeefac38f8ce894922635aed030540f43eda0e83000986bdfcf84b008e37d65
   languageName: node
   linkType: hard
 
