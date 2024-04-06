@@ -33,6 +33,7 @@ import { ToastComp } from "./toastComp";
 import { ThemeComp } from "./themeComp";
 import UrlParamsHookComp from "./UrlParamsHookComp";
 import { UtilsComp } from "./utilsComp";
+import { ScreenInfoHookComp } from "./screenInfoComp";
 import { pinyin } from 'pinyin-pro';
 import { ConfettiComp } from "../comps/confettiComp";
 
@@ -102,6 +103,7 @@ const HookMap: HookCompMapRawType = {
   localStorage: LocalStorageComp,
   modal: ModalComp,
   currentUser: CurrentUserHookComp,
+  screenInfo: ScreenInfoHookComp,
   urlParams: UrlParamsHookComp,
   drawer: DrawerComp,
   theme: ThemeComp,

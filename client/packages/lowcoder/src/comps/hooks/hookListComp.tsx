@@ -23,6 +23,7 @@ const defaultHookListValue = [
   { compType: "toast", name: "toast" },
   { compType: "localStorage", name: "localStorage" },
   { compType: "currentUser", name: "currentUser" },
+  { compType: "screenInfo", name: "screenInfo" },
   { compType: "theme", name: "theme" },
 ] as const;
 

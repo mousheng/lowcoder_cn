@@ -16,6 +16,7 @@ const AllHookComp = [
   "toast",
   "localStorage",
   "currentUser",
+  "screenInfo",
   "urlParams",
   "theme",
   "confetti",

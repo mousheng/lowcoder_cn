@@ -473,6 +473,19 @@ var uiCompMap: Registry = mergeObject({
 
   // Collaboration
 
+  comment: {
+    name: trans("uiComp.commentCompName"),
+    enName: "comment",
+    description: trans("uiComp.commentCompDesc"),
+    categories: ["forms","collaboration"],
+    icon: CommentIcon,
+    keywords: trans("uiComp.commentCompKeywords"),
+    comp: CommentComp,
+    layoutInfo: {
+      w: 13,
+      h: 55,
+    },
+  },
   mention: {
     name: trans("uiComp.mentionCompName"),
     enName: "mention",
