@@ -59,10 +59,6 @@ import { AntLayoutComp } from "./comps/navComp/antLayout";
 import { ColorPickerComp } from "./comps/textInputComp/colorPickerComp";
 import { JsonLottieComp } from "./comps/jsonComp/jsonLottieComp";
 import { ResponsiveLayoutComp } from "./comps/responsiveLayout";
-import { VideoMeetingStreamComp } from "./comps/meetingComp/videoMeetingStreamComp";
-import { ControlButton } from "./comps/meetingComp/controlButton";
-import { VideoMeetingControllerComp } from "./comps/meetingComp/videoMeetingControllerComp";
-import { VideoSharingStreamComp } from "./comps/meetingComp/videoSharingStreamComp";
 import { FloatButtonComp } from "./comps/buttonComp/floatButtonComp";
 import { GanttComp } from "./comps/gantee";
 import { TransferComp } from "./comps/TransferComp";
@@ -477,57 +473,6 @@ var uiCompMap: Registry = mergeObject({
 
   // Collaboration
 
-  sharingcomponent: {
-    name: trans("meeting.sharingCompName"),
-    enName: "Sharing",
-    description: trans("meeting.sharingCompName"),
-    categories: ["collaboration"],
-    icon: VideoCompIcon,
-    keywords: trans("meeting.meetingCompKeywords"),
-    comp: VideoSharingStreamComp,
-    withoutLoading: true,
-    layoutInfo: {
-      w: 12, 
-      h: 50,
-    }
-  },
-  videocomponent: {
-    name: trans("meeting.videoCompName"),
-    enName: "Video",
-    description: trans("meeting.videoCompName"),
-    categories: ["collaboration"],
-    icon: VideoCompIcon,
-    keywords: trans("meeting.meetingCompKeywords"),
-    comp: VideoMeetingStreamComp,
-    withoutLoading: true,
-    layoutInfo: {
-      w: 6, 
-      h: 32,
-    }
-  },
-  meeting: {
-    name: trans("meeting.meetingCompName"),
-    enName: "Drawer",
-    description: trans("meeting.meetingCompDesc"),
-    categories: ["collaboration"],
-    icon: DrawerCompIcon,
-    keywords: trans("meeting.meetingCompKeywords"),
-    comp: VideoMeetingControllerComp,
-    withoutLoading: true,
-  },
-  comment: {
-    name: trans("uiComp.commentCompName"),
-    enName: "comment",
-    description: trans("uiComp.commentCompDesc"),
-    categories: ["forms","collaboration"],
-    icon: CommentIcon,
-    keywords: trans("uiComp.commentCompKeywords"),
-    comp: CommentComp,
-    layoutInfo: {
-      w: 13,
-      h: 55,
-    },
-  },
   mention: {
     name: trans("uiComp.mentionCompName"),
     enName: "mention",
@@ -765,20 +710,6 @@ var uiCompMap: Registry = mergeObject({
       h: 6,
     },
     withoutLoading: true,
-  },
-  controlButton: {
-    name: trans("meeting.meetingControlCompName"),
-    enName: "Controls",
-    description: trans("meeting.meetingCompDesc"),
-    categories: ["forms", "collaboration"],
-    icon: ButtonCompIcon,
-    keywords: trans("meeting.meetingCompKeywords"),
-    comp: ControlButton,
-    withoutLoading: true,
-    layoutInfo: {
-      w: 3,
-      h: 6,
-    },
   },
   dropdown: {
     name: trans("uiComp.dropdownCompName"),

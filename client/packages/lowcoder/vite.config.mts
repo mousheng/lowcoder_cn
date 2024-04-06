@@ -14,7 +14,7 @@ import { globalDepPlugin } from "./src/dev-utils/globalDepPlguin";
 
 dotenv.config();
 !process.env.LOWCODER_API_SERVICE_URL && console.log("默认连接http://localhost:3000,您可以使用以下启动命令指定地址：LOWCODER_API_SERVICE_URL=http://自定义地址:端口 yarn start");
-const apiProxyTarget = process.env.LOWCODER_API_SERVICE_URL ?? "http://localhost:3000";
+const apiProxyTarget = process.env.LOWCODER_API_SERVICE_URL ?? "http://192.168.0.113:3006/";
 const nodeServiceApiProxyTarget = process.env.NODE_SERVICE_API_PROXY_TARGET;
 const nodeEnv = process.env.NODE_ENV ?? "development";
 const edition = process.env.REACT_APP_EDITION;
