@@ -55,6 +55,7 @@ import {
 import { BaseOptionType, DefaultOptionType } from "antd/es/select";
 import { pinyin } from 'pinyin-pro';
 import { FilterFunc } from "rc-select/lib/Select";
+import _ from "lodash";
 
 
 const InputStyle = styled(Input) <{ $style: InputLikeStyleType }>`
@@ -162,6 +163,7 @@ let AutoCompleteCompBase = (function () {
     const [activationFlag, setActivationFlag] = useState(false);
     const [searchtext, setsearchtext] = useState<string>(props.value.value);
     const [validateState, setvalidateState] = useState({});
+    const [PYCache, setPYCache] = useState({})
 
     //   是否中文环境
     const [chineseEnv, setChineseEnv] = useState(getDayJSLocale() === "zh-cn");
@@ -179,6 +181,21 @@ let AutoCompleteCompBase = (function () {
       props.regex,
       props.customRule,
     ]);
+
+    useEffect(() => {
+      var temp = _.reduce(props.items, (obj: any, item: any) => {
+        if (item?.value) obj[item.value] = {
+          first: pinyin(item!.value, FirstPinyinOption),
+          all: pinyin(item!.value, AllPinyinOption),
+        }
+        if (item?.label) obj[item.label] = {
+          first: pinyin(item!.label, FirstPinyinOption),
+          all: pinyin(item!.label, AllPinyinOption),
+        }
+        return obj
+      }, {})
+      setPYCache(temp)
+    }, [props.items])
 
     const onChange = (value: unknown) => {
       props.valueInItems.onChange(false);
@@ -218,15 +235,14 @@ let AutoCompleteCompBase = (function () {
       if (
         chineseEnv &&
         searchFirstPY &&
-        pinyin(option!.label, FirstPinyinOption)
-
+        _.get(PYCache, `${option!.label}.first`, '')
           .indexOf(InputValueLowerCase) >= 0
       )
         return true;
       if (
         chineseEnv &&
         searchCompletePY &&
-        pinyin(option!.label, AllPinyinOption)
+        _.get(PYCache, `${option!.label}.all`, '')
           .indexOf(InputValueLowerCase) >= 0
       )
         return true;
@@ -247,21 +263,21 @@ let AutoCompleteCompBase = (function () {
         if (
           chineseEnv &&
           searchFirstPY &&
-          pinyin(option!.value, FirstPinyinOption)
+          _.get(PYCache, `${option!.value}.first`, '')
             .indexOf(InputValueLowerCase) >= 0
         )
           return true;
         if (
           chineseEnv &&
           searchCompletePY &&
-          pinyin(option!.value, AllPinyinOption)
+          _.get(PYCache, `${option!.value}.all`, '')
             .indexOf(InputValueLowerCase) >= 0
         )
           return true;
       }
       return false;
     }
-
+    
 
     return props.label({
       required: props.required,
