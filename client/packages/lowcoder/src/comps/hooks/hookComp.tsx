@@ -33,8 +33,6 @@ import { ToastComp } from "./toastComp";
 import { ThemeComp } from "./themeComp";
 import UrlParamsHookComp from "./UrlParamsHookComp";
 import { UtilsComp } from "./utilsComp";
-import { VideoMeetingControllerComp } from "../comps/meetingComp/videoMeetingControllerComp";
-import { ScreenInfoHookComp } from "./screenInfoComp";
 import { pinyin } from 'pinyin-pro';
 import { ConfettiComp } from "../comps/confettiComp";
 
@@ -103,9 +101,7 @@ const HookMap: HookCompMapRawType = {
   toast: ToastComp,
   localStorage: LocalStorageComp,
   modal: ModalComp,
-  meeting: VideoMeetingControllerComp,
   currentUser: CurrentUserHookComp,
-  screenInfo: ScreenInfoHookComp,
   urlParams: UrlParamsHookComp,
   drawer: DrawerComp,
   theme: ThemeComp,
@@ -128,8 +124,7 @@ function SelectHookView(props: {
   useEffect(() => {
     if (
       (props.compType !== "modal" &&
-        props.compType !== "drawer" &&
-        props.compType !== "meeting") ||
+        props.compType !== "drawer") ||
       !selectedComp ||
       (editorState.selectSource !== "addComp" &&
         editorState.selectSource !== "leftPanel")
