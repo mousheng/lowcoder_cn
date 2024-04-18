@@ -4,7 +4,7 @@ import { JSONObject, JSONValue } from "util/jsonTypes";
 import { CompAction, CompActionTypes, deleteCompAction, wrapChildAction } from "lowcoder-core";
 import { DispatchType, RecordConstructorToView, wrapDispatch } from "lowcoder-core";
 import { AutoHeightControl } from "comps/controls/autoHeightControl";
-import { BooleanStateControl, booleanExposingStateControl, stringExposingStateControl } from "comps/controls/codeStateControl";
+import { stringExposingStateControl } from "comps/controls/codeStateControl";
 import { eventHandlerControl } from "comps/controls/eventHandlerControl";
 import { TabsOptionControl } from "comps/controls/optionsControl";
 import { styleControl } from "comps/controls/styleControl";
@@ -13,7 +13,7 @@ import { sameTypeMap, UICompBuilder, withDefault } from "comps/generators";
 import { addMapChildAction } from "comps/generators/sameTypeMap";
 import { NameConfig, NameConfigHidden, withExposingConfigs } from "comps/generators/withExposing";
 import { NameGenerator } from "comps/utils";
-import { ControlNode, Section, sectionNames } from "lowcoder-design";
+import { ScrollBar, Section, sectionNames } from "lowcoder-design";
 import { HintPlaceHolder } from "lowcoder-design";
 import _ from "lodash";
 import React, { useCallback, useContext } from "react";
@@ -71,9 +71,10 @@ const childrenMap = {
     1: { layout: {}, items: {} },
   }),
   autoHeight: AutoHeightControl,
+  scrollbars: withDefault(BoolControl, false),
   onEvent: eventHandlerControl(EVENT_OPTIONS),
   disabled: BoolCodeControl,
-  showHeader: withDefault(BooleanStateControl, "true"),
+  showHeader: withDefault(BoolControl, true),
   style: styleControl(TabContainerStyle),
   headerStyle: styleControl(ContainerHeaderStyle),
   bodyStyle: styleControl(ContainerBodyStyle),
@@ -183,7 +184,7 @@ const StyledTabs = styled(Tabs)<{
 }
 
 .ant-tabs-nav {
-  display: ${(props) => (props.$showHeader ? "block" : "none")};
+  display: ${(props) => (props.$showHeader ? "flex" : "none")};
   padding: 0 ${(props) => (props.$isMobile ? 16 :  props.tabPosition === "top" || props.tabPosition === "bottom" ? 24 : 0)}px;
   background: white;
   margin: 0px;
@@ -248,7 +249,7 @@ const TabbedContainer = (props: TabbedContainerProps) => {
   const editorState = useContext(EditorContext);
   const maxWidth = editorState.getAppSettings().maxWidth;
   const isMobile = checkIsMobile(maxWidth);
-  const showHeader = props.showHeader.value;
+  const showHeader = props.showHeader.valueOf();
   const paddingWidth = isMobile ? 8 : 0;
 
   const tabItems = visibleTabs.map((tab) => {
@@ -273,15 +274,17 @@ const TabbedContainer = (props: TabbedContainerProps) => {
       forceRender: true,
       children: (
         <BackgroundColorContext.Provider value={bodyStyle.background}>
-          <ContainerInTab
-            layout={containerProps.layout.getView()}
-            items={gridItemCompToGridItems(containerProps.items.getView())}
-            positionParams={containerProps.positionParams.getView()}
-            dispatch={childDispatch}
-            autoHeight={props.autoHeight}
-            // containerPadding={[paddingWidth, 20]}
-            style={{ padding: style.containerbodypadding }}
-          />
+          <ScrollBar style={{ height: props.autoHeight ? "100%" : "auto", margin: "0px", padding: "0px" }} hideScrollbar={!props.scrollbars}>
+            <ContainerInTab
+              layout={containerProps.layout.getView()}
+              items={gridItemCompToGridItems(containerProps.items.getView())}
+              positionParams={containerProps.positionParams.getView()}
+              dispatch={childDispatch}
+              autoHeight={props.autoHeight}
+              // containerPadding={[paddingWidth, 20]}
+              style={{ padding: style.containerbodypadding }}
+            />
+          </ScrollBar>
         </BackgroundColorContext.Provider>
       )
     }
@@ -303,7 +306,7 @@ const TabbedContainer = (props: TabbedContainerProps) => {
           props.onEvent("change");
         }
       }}
-      onTabClick={onTabClick}
+      // onTabClick={onTabClick}
       animated
       $isMobile={isMobile}
       // tabBarGutter={32}
@@ -339,7 +342,7 @@ export const TabbedContainerBaseComp = (function () {
               {children.onEvent.getPropertyView()}
               {disabledPropertyView(children)}
               {children.showHeader.propertyView({ label: trans("prop.showHeader") })}
-              {children.showHeader.getView().value && children.position.propertyView({ label: trans("tabbedContainer.TabPosition"), radioButton: true })}
+              {children.showHeader.getView() && children.position.propertyView({ label: trans("tabbedContainer.TabPosition"), radioButton: true })}
               {hiddenPropertyView(children)}
             </Section>
           )}
@@ -348,6 +351,11 @@ export const TabbedContainerBaseComp = (function () {
             <>
               <Section name={sectionNames.layout}>
                 {children.autoHeight.getPropertyView()}
+                {!children.autoHeight.getView() && (
+                  children.scrollbars.propertyView({
+                    label: trans("prop.scrollbar"),
+                  })
+                )}
               </Section>
               <Section name={sectionNames.style}>
                 {children.style.getPropertyView()}

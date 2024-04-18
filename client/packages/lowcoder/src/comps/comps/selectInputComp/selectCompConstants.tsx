@@ -56,6 +56,8 @@ import { blurMethod, focusMethod } from "comps/utils/methodUtils";
 
 import { useContext } from "react";
 import { EditorContext } from "comps/editorState";
+import { pinyin } from 'pinyin-pro';
+import { FirstPinyinOption } from "../autoCompleteComp/autoCompleteConstants";
 
 export const getStyle = (
   style:
@@ -242,7 +244,7 @@ export const SelectUIView = (
     filterOption={(input, option) => {
       // 支持首拼搜索
       if (input.charCodeAt(0) >= 32 && input.charCodeAt(0) <= 126) {
-        return option?.label && option.label.spell('first').toLowerCase().indexOf(input.toLowerCase()) >= 0;
+        return option?.label && pinyin(option.label, FirstPinyinOption).indexOf(input.toLowerCase()) >= 0;
         //如果以中文输入搜索
       } else {
         return option?.label && option.label.toLowerCase().indexOf(input.toLowerCase()) >= 0;
@@ -334,10 +336,10 @@ export const SelectPropertyView = (
     {["layout", "both"].includes(
       useContext(EditorContext).editorModeStatus
     ) && (
-      <Section name={sectionNames.style}>
-        {children.style.getPropertyView()}
-      </Section>
-    )}
+        <Section name={sectionNames.style}>
+          {children.style.getPropertyView()}
+        </Section>
+      )}
   </>
 );
 

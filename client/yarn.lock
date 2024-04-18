@@ -19,40 +19,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@agora-js/media@npm:^4.20.0":
-  version: 4.20.0
-  resolution: "@agora-js/media@npm:4.20.0"
-  dependencies:
-    "@agora-js/report": ^4.20.0
-    "@agora-js/shared": ^4.20.0
-    agora-rte-extension: ^1.2.4
-    axios: ^0.27.2
-    pako: ^2.1.0
-    webrtc-adapter: 8.2.0
-  checksum: 7dade8b199ab90fe3876aaae185d7ffbe556bf3c6ec2157c19b621e2bf97085615b4751080408eb5064aa4b6fa25ec9ea58fb6e3a8918807c0448709acd7f88a
-  languageName: node
-  linkType: hard
-
-"@agora-js/report@npm:^4.20.0":
-  version: 4.20.0
-  resolution: "@agora-js/report@npm:4.20.0"
-  dependencies:
-    "@agora-js/shared": ^4.20.0
-    axios: ^0.27.2
-  checksum: 2fc41c90171a670b58fa241a55db9d0a116a1a7377fcab8319ceb56804b8cb8250a982e65239d5fd5c9e19a03c0f9cd7460fbd3416df1283dc49935810875f3e
-  languageName: node
-  linkType: hard
-
-"@agora-js/shared@npm:^4.20.0":
-  version: 4.20.0
-  resolution: "@agora-js/shared@npm:4.20.0"
-  dependencies:
-    axios: ^0.27.2
-    ua-parser-js: ^0.7.34
-  checksum: b12fc190e24124745af6a0c6811f92bd5b5940a862f77b2869211ea1769629f0973a39590cc227264b282be07ec8e73257f5bc5806412084facb10642881d8d2
-  languageName: node
-  linkType: hard
-
 "@amap/amap-react@npm:^0.1.5":
   version: 0.1.5
   resolution: "@amap/amap-react@npm:0.1.5"
@@ -3121,13 +3087,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@juggle/resize-observer@npm:^3.3.1":
-  version: 3.4.0
-  resolution: "@juggle/resize-observer@npm:3.4.0"
-  checksum: 2505028c05cc2e17639fcad06218b1c4b60f932a4ebb4b41ab546ef8c157031ae377e3f560903801f6d01706dbefd4943b6c4704bf19ed86dfa1c62f1473a570
-  languageName: node
-  linkType: hard
-
 "@lezer/common@npm:^1.0.0, @lezer/common@npm:^1.0.2, @lezer/common@npm:^1.1.0, @lezer/common@npm:^1.2.0":
   version: 1.2.0
   resolution: "@lezer/common@npm:1.2.0"
@@ -4431,6 +4390,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/lodash-es@npm:^4.17.6":
+  version: 4.17.12
+  resolution: "@types/lodash-es@npm:4.17.12"
+  dependencies:
+    "@types/lodash": "*"
+  checksum: 990a99e2243bebe9505cb5ad19fbc172beb4a8e00f9075c99fc06c46c2801ffdb40bc2867271cf580d5f48994fc9fb076ec92cd60a20e621603bf22114e5b077
+  languageName: node
+  linkType: hard
+
+"@types/lodash@npm:*":
+  version: 4.17.0
+  resolution: "@types/lodash@npm:4.17.0"
+  checksum: 3f98c0b67a93994cbc3403d4fa9dbaf52b0b6bb7f07a764d73875c2dcd5ef91222621bd5bcf8eee7b417a74d175c2f7191b9f595f8603956fd06f0674c0cba93
+  languageName: node
+  linkType: hard
+
 "@types/lodash@npm:^4.14.194":
   version: 4.14.202
   resolution: "@types/lodash@npm:4.14.202"
@@ -4692,6 +4667,15 @@ __metadata:
   version: 2.3.6
   resolution: "@types/signature_pad@npm:2.3.6"
   checksum: dfb27dd2eea7895a8c0e971ec4f8f9b4ecf3cf2e9bca51d5bc3fe21617721a4cb755ad4ec743de56655159b8ade28ec3332ec784607f1911f7b36780afa41065
+  languageName: node
+  linkType: hard
+
+"@types/simplebar@npm:^5.3.3":
+  version: 5.3.3
+  resolution: "@types/simplebar@npm:5.3.3"
+  dependencies:
+    simplebar: "*"
+  checksum: db0dfe8e8dbbe9a98ffa840aeb9e14ee8a8d5d5cc3042f5348be470c5864d40278459636124ef631bd700e749aa9cdafc6844e43f805b28edf090ce24eb982f4
   languageName: node
   linkType: hard
 
@@ -5151,46 +5135,6 @@ __metadata:
     clean-stack: ^2.0.0
     indent-string: ^4.0.0
   checksum: 1101a33f21baa27a2fa8e04b698271e64616b886795fd43c31068c07533c7b3facfcaf4e9e0cab3624bd88f729a592f1c901a1a229c9e490eafce411a8644b79
-  languageName: node
-  linkType: hard
-
-"agora-access-token@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "agora-access-token@npm:2.0.4"
-  dependencies:
-    crc-32: 1.2.0
-    cuint: 0.2.2
-  checksum: 7d91fa01c4ba085f70b8bdac9d296f8a5d29d2dc5a1c5cd995d4fe7bfb557cc3c5223bb0417065e89c584c0dbfaa7ddfdb4b689b0b8fc2459e77ad9d4ff0d52a
-  languageName: node
-  linkType: hard
-
-"agora-rtc-sdk-ng@npm:^4.19.0":
-  version: 4.20.0
-  resolution: "agora-rtc-sdk-ng@npm:4.20.0"
-  dependencies:
-    "@agora-js/media": ^4.20.0
-    "@agora-js/report": ^4.20.0
-    "@agora-js/shared": ^4.20.0
-    agora-rte-extension: ^1.2.4
-    axios: ^0.27.2
-    formdata-polyfill: ^4.0.7
-    ua-parser-js: ^0.7.34
-    webrtc-adapter: 8.2.0
-  checksum: b0e7936e4b58830d2156c3e2f677bc327440516fb7fc81534e19a6e659b63a44147b78ccbbc6e018dc65108ad08c52a390213ae2df41fd4d114bf0a2e731c486
-  languageName: node
-  linkType: hard
-
-"agora-rte-extension@npm:^1.2.4":
-  version: 1.2.4
-  resolution: "agora-rte-extension@npm:1.2.4"
-  checksum: 1166204984780fe8a65968f9195ea763c8deb54e29b90d81135e8b791ccc3926bf748e460142e95644d2aff3c662e922cd269989f6ffd7da965d53ee09581929
-  languageName: node
-  linkType: hard
-
-"agora-rtm-sdk@npm:^1.5.1":
-  version: 1.5.1
-  resolution: "agora-rtm-sdk@npm:1.5.1"
-  checksum: b7518664df7c63a8910d400c48660301da2536bccb2f2d55dc8daa074a8441ceb62c7987e97fd447fd76da5fb5285d44fff03f4c2e78bca78890fa3d62981947
   languageName: node
   linkType: hard
 
@@ -5690,16 +5634,6 @@ __metadata:
     form-data: ^4.0.0
     proxy-from-env: ^1.1.0
   checksum: 48d8af8488ac7402fae312437c0189b3b609a472fca2f7fc796129c804d98520589b6317096eba8509711d49f855a3f620b6a24ff23acd73ac26433d0383b8f9
-  languageName: node
-  linkType: hard
-
-"axios@npm:^0.27.2":
-  version: 0.27.2
-  resolution: "axios@npm:0.27.2"
-  dependencies:
-    follow-redirects: ^1.14.9
-    form-data: ^4.0.0
-  checksum: 38cb7540465fe8c4102850c4368053c21683af85c5fdf0ea619f9628abbcb59415d1e22ebc8a6390d2bbc9b58a9806c874f139767389c862ec9b772235f06854
   languageName: node
   linkType: hard
 
@@ -6429,22 +6363,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cnchar-types@npm:^3.2.5":
-  version: 3.2.5
-  resolution: "cnchar-types@npm:3.2.5"
-  checksum: fbbe186b03c20c50499d37027ae3fbeea695d4f2bd6144baf55a35e890f892ae59d17e1b6918c13addf5f134c8e28dba490a2ad2a2f79cf0eb542b0b3c3343cb
-  languageName: node
-  linkType: hard
-
-"cnchar@npm:^3.2.4":
-  version: 3.2.5
-  resolution: "cnchar@npm:3.2.5"
-  dependencies:
-    cnchar-types: ^3.2.5
-  checksum: b12317386642a04b41f791631d7af25cfaa9251572083b102c684a786ac280c61dedcfab31e870acaa1be4498580f1794725ff965c40e9e2fe1fcfde99ef6e1b
-  languageName: node
-  linkType: hard
-
 "co@npm:^4.6.0":
   version: 4.6.0
   resolution: "co@npm:4.6.0"
@@ -6681,7 +6599,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"core-js@npm:^3.0.1, core-js@npm:^3.25.2":
+"core-js@npm:^3.25.2":
   version: 3.35.0
   resolution: "core-js@npm:3.35.0"
   checksum: 25c224aca3df012b98f08f13ccbd8171ef5852acd33fd5e58e106d27f5f0c97de2fdbc520f0b4364d26253caf2deb3e5d265310f57d2a66ae6cc922850e649f0
@@ -6730,18 +6648,6 @@ __metadata:
     path-type: ^4.0.0
     yaml: ^1.10.0
   checksum: c53bf7befc1591b2651a22414a5e786cd5f2eeaa87f3678a3d49d6069835a9d8d1aef223728e98aa8fec9a95bf831120d245096db12abe019fecb51f5696c96f
-  languageName: node
-  linkType: hard
-
-"crc-32@npm:1.2.0":
-  version: 1.2.0
-  resolution: "crc-32@npm:1.2.0"
-  dependencies:
-    exit-on-epipe: ~1.0.1
-    printj: ~1.1.0
-  bin:
-    crc32: ./bin/crc32.njs
-  checksum: 7bcde8bea262f6629ac3c70e20bdfa3d058dc77091705ce8620513f76f19b41fc273ddd65a716eef9b4e33fbb61ff7f9b266653d214319aef27e4223789c6b9e
   languageName: node
   linkType: hard
 
@@ -7017,13 +6923,6 @@ __metadata:
   version: 3.1.3
   resolution: "csstype@npm:3.1.3"
   checksum: 8db785cc92d259102725b3c694ec0c823f5619a84741b5c7991b8ad135dfaa66093038a1cc63e03361a6cd28d122be48f2106ae72334e067dd619a51f49eddf7
-  languageName: node
-  linkType: hard
-
-"cuint@npm:0.2.2":
-  version: 0.2.2
-  resolution: "cuint@npm:0.2.2"
-  checksum: b8127a93a7f16ce120ffcb22108014327c9808b258ee20e7dbb4c6740d7cb0f0c12d18a054eb716b0f2470090666abaae8a082d3cd5ef0e94fa447dd155842c4
   languageName: node
   linkType: hard
 
@@ -8882,13 +8781,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"exit-on-epipe@npm:~1.0.1":
-  version: 1.0.1
-  resolution: "exit-on-epipe@npm:1.0.1"
-  checksum: e8ab4940416d19f311b3c9226e3725c6c4c6026fe682266ecc0ff33a455d585fe3e4ee757857c7bf1d0491b478cb232b8e395dfb438e65ac87317eda47304c32
-  languageName: node
-  linkType: hard
-
 "exit@npm:^0.1.2":
   version: 0.1.2
   resolution: "exit@npm:0.1.2"
@@ -9070,16 +8962,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fetch-blob@npm:^3.1.2":
-  version: 3.2.0
-  resolution: "fetch-blob@npm:3.2.0"
-  dependencies:
-    node-domexception: ^1.0.0
-    web-streams-polyfill: ^3.0.3
-  checksum: f19bc28a2a0b9626e69fd7cf3a05798706db7f6c7548da657cbf5026a570945f5eeaedff52007ea35c8bcd3d237c58a20bf1543bc568ab2422411d762dd3d5bf
-  languageName: node
-  linkType: hard
-
 "file-entry-cache@npm:^6.0.1":
   version: 6.0.1
   resolution: "file-entry-cache@npm:6.0.1"
@@ -9164,7 +9046,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.14.9, follow-redirects@npm:^1.15.4":
+"follow-redirects@npm:^1.0.0, follow-redirects@npm:^1.15.4":
   version: 1.15.4
   resolution: "follow-redirects@npm:1.15.4"
   peerDependenciesMeta:
@@ -9226,15 +9108,6 @@ __metadata:
     combined-stream: ^1.0.6
     mime-types: ^2.1.12
   checksum: 10c1780fa13dbe1ff3100114c2ce1f9307f8be10b14bf16e103815356ff567b6be39d70fc4a40f8990b9660012dc24b0f5e1dde1b6426166eb23a445ba068ca3
-  languageName: node
-  linkType: hard
-
-"formdata-polyfill@npm:^4.0.7":
-  version: 4.0.10
-  resolution: "formdata-polyfill@npm:4.0.10"
-  dependencies:
-    fetch-blob: ^3.1.2
-  checksum: 82a34df292afadd82b43d4a740ce387bc08541e0a534358425193017bf9fb3567875dc5f69564984b1da979979b70703aa73dee715a17b6c229752ae736dd9db
   languageName: node
   linkType: hard
 
@@ -11842,13 +11715,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash.memoize@npm:^4.1.2":
-  version: 4.1.2
-  resolution: "lodash.memoize@npm:4.1.2"
-  checksum: 9ff3942feeccffa4f1fafa88d32f0d24fdc62fd15ded5a74a5f950ff5f0c6f61916157246744c620173dddf38d37095a92327d5fd3861e2063e736a5c207d089
-  languageName: node
-  linkType: hard
-
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
@@ -11867,13 +11733,6 @@ __metadata:
   version: 4.7.0
   resolution: "lodash.sortby@npm:4.7.0"
   checksum: db170c9396d29d11fe9a9f25668c4993e0c1331bcb941ddbd48fb76f492e732add7f2a47cfdf8e9d740fa59ac41bbfaf931d268bc72aab3ab49e9f89354d718c
-  languageName: node
-  linkType: hard
-
-"lodash.throttle@npm:^4.1.1":
-  version: 4.1.1
-  resolution: "lodash.throttle@npm:4.1.1"
-  checksum: 129c0a28cee48b348aef146f638ef8a8b197944d4e9ec26c1890c19d9bf5a5690fe11b655c77a4551268819b32d27f4206343e30c78961f60b561b8608c8c805
   languageName: node
   linkType: hard
 
@@ -12053,6 +11912,7 @@ __metadata:
     "@rollup/plugin-typescript": ^9.0.2
     "@rollup/plugin-url": ^8.0.1
     "@svgr/rollup": ^6.5.1
+    "@types/simplebar": ^5.3.3
     colord: ^2.9.3
     react-fontawesome: ^0.2.0
     react-markdown: ^8.0.0
@@ -12064,6 +11924,8 @@ __metadata:
     rollup-plugin-cleaner: ^1.0.0
     rollup-plugin-polyfill-node: ^0.11.0
     rollup-plugin-terser: ^7.0.2
+    simplebar: ^6.2.5
+    simplebar-react: ^3.2.4
     typescript: ^4.8.4
   languageName: unknown
   linkType: soft
@@ -12107,6 +11969,7 @@ __metadata:
     "@types/react-resizable": ^3.0.5
     "@types/react-router-dom": ^5.3.2
     "@types/shelljs": ^0.8.11
+    "@types/simplebar": ^5.3.3
     "@types/styled-components": ^5.1.34
     "@types/stylis": ^4.0.2
     "@types/tern": 0.23.4
@@ -12127,9 +11990,11 @@ __metadata:
     number-precision: ^1.6.0
     prettier: ^3.1.0
     react-player: ^2.11.0
+    resize-observer-polyfill: ^1.5.1
     rimraf: ^3.0.2
     rollup: ^2.79.0
     shelljs: ^0.8.5
+    simplebar: ^6.2.5
     svgo: ^3.0.0
     tui-image-editor: ^3.15.3
     typescript: ^4.8.4
@@ -12206,14 +12071,10 @@ __metadata:
     "@types/regenerator-runtime": ^0.13.1
     "@types/uuid": ^8.3.4
     "@vitejs/plugin-react": ^2.2.0
-    agora-access-token: ^2.0.4
-    agora-rtc-sdk-ng: ^4.19.0
-    agora-rtm-sdk: ^1.5.1
     antd: ^5.13.2
     axios: ^1.6.2
     buffer: ^6.0.3
     clsx: ^2.0.0
-    cnchar: ^3.2.4
     copy-to-clipboard: ^3.3.3
     core-js: ^3.25.2
     dhtmlx-gantt: ^8.0.6
@@ -12238,6 +12099,7 @@ __metadata:
     moment: ^2.29.4
     numbro: ^2.3.6
     papaparse: ^5.3.2
+    pinyin-pro: ^3.19.6
     rc-trigger: ^5.3.1
     react: ^18.2.0
     react-colorful: ^5.5.1
@@ -12270,7 +12132,7 @@ __metadata:
     remark-gfm: ^3.0.1
     resize-observer-polyfill: ^1.5.1
     rollup-plugin-visualizer: ^5.9.2
-    simplebar-react: 2.3.6
+    simplebar-react: ^3.2.4
     sql-formatter: ^8.2.0
     styled-components: ^6.1.6
     stylis: ^4.1.1
@@ -13400,13 +13262,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-domexception@npm:^1.0.0":
-  version: 1.0.0
-  resolution: "node-domexception@npm:1.0.0"
-  checksum: ee1d37dd2a4eb26a8a92cd6b64dfc29caec72bff5e1ed9aba80c294f57a31ba4895a60fd48347cf17dd6e766da0ae87d75657dfd1f384ebfa60462c2283f5c7f
-  languageName: node
-  linkType: hard
-
 "node-fetch@npm:^2.6.12":
   version: 2.7.0
   resolution: "node-fetch@npm:2.7.0"
@@ -13788,13 +13643,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pako@npm:^2.1.0":
-  version: 2.1.0
-  resolution: "pako@npm:2.1.0"
-  checksum: 71666548644c9a4d056bcaba849ca6fd7242c6cf1af0646d3346f3079a1c7f4a66ffec6f7369ee0dc88f61926c10d6ab05da3e1fca44b83551839e89edd75a3e
-  languageName: node
-  linkType: hard
-
 "papaparse@npm:^5.3.2":
   version: 5.4.1
   resolution: "papaparse@npm:5.4.1"
@@ -14011,6 +13859,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"pinyin-pro@npm:^3.19.6":
+  version: 3.19.6
+  resolution: "pinyin-pro@npm:3.19.6"
+  checksum: dc801ebe86d1323469d2009212b502c7ac22339f0b0eb6e3864b723acfc6f43dceeefac38f8ce894922635aed030540f43eda0e83000986bdfcf84b008e37d65
+  languageName: node
+  linkType: hard
+
 "pirates@npm:^4.0.1, pirates@npm:^4.0.4":
   version: 4.0.6
   resolution: "pirates@npm:4.0.6"
@@ -14133,15 +13988,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"printj@npm:~1.1.0":
-  version: 1.1.2
-  resolution: "printj@npm:1.1.2"
-  bin:
-    printj: ./bin/printj.njs
-  checksum: 1c0c66844545415e339356ad62009cdc467819817b1e0341aba428087a1414d46b84089edb4e77ef24705829f8aae6349724b9c7bd89d8690302b2de7a89b315
-  languageName: node
-  linkType: hard
-
 "proc-log@npm:^3.0.0":
   version: 3.0.0
   resolution: "proc-log@npm:3.0.0"
@@ -14192,7 +14038,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:15.x, prop-types@npm:^15.0.0, prop-types@npm:^15.5.7, prop-types@npm:^15.6.1, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
+"prop-types@npm:15.x, prop-types@npm:^15.0.0, prop-types@npm:^15.5.7, prop-types@npm:^15.6.2, prop-types@npm:^15.7.2, prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -16382,13 +16228,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sdp@npm:^3.0.2":
-  version: 3.2.0
-  resolution: "sdp@npm:3.2.0"
-  checksum: 227885bddab9a5845e56ae184ff51e43ec7bc155e7f1ed2f17ca1b012e6767011d5bd01b6c4064ded8e3b6f6bf3c9b26b2cf754b9c8662285988ed27b54f37b1
-  languageName: node
-  linkType: hard
-
 "semver@npm:^5.6.0":
   version: 5.7.2
   resolution: "semver@npm:5.7.2"
@@ -16553,30 +16392,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"simplebar-react@npm:2.3.6":
-  version: 2.3.6
-  resolution: "simplebar-react@npm:2.3.6"
+"simplebar-core@npm:^1.2.4":
+  version: 1.2.4
+  resolution: "simplebar-core@npm:1.2.4"
   dependencies:
-    prop-types: ^15.6.1
-    simplebar: ^5.3.6
-  peerDependencies:
-    react: ^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0 || ^17.0
-    react-dom: ^0.14.9 || ^15.3.0 || ^16.0.0-rc || ^16.0 || ^17.0
-  checksum: 5487200fefd8f9f7aba349637b6f5f777aab4470239bc4f3fcb4e86ff4fa5d12dea68684df80e6cea644d9dffb062fbde7d9504762d9d82f7e5083cc260cf0c1
+    "@types/lodash-es": ^4.17.6
+    can-use-dom: ^0.1.0
+    lodash: ^4.17.21
+    lodash-es: ^4.17.21
+  checksum: 9bef0a29cc2ddba488776bc05eac6cbf3daa6e72fbcb54ff288cbbb2e64cadf22cc378ac3627f86c32c29ddf9f63d7accf8772e4013318aaba353625869ae866
   languageName: node
   linkType: hard
 
-"simplebar@npm:^5.3.6":
-  version: 5.3.9
-  resolution: "simplebar@npm:5.3.9"
+"simplebar-react@npm:^3.2.4":
+  version: 3.2.4
+  resolution: "simplebar-react@npm:3.2.4"
   dependencies:
-    "@juggle/resize-observer": ^3.3.1
+    simplebar-core: ^1.2.4
+  peerDependencies:
+    react: ">=16.8.0"
+  checksum: 0355a7ccb99114de99c84c7e548058f299c716d3fb2ac769bdb83138da19e75936f84698b9f4134d17be84322845a4290093f37b2f3c3ee2299e3bd8863c6196
+  languageName: node
+  linkType: hard
+
+"simplebar@npm:*, simplebar@npm:^6.2.5":
+  version: 6.2.5
+  resolution: "simplebar@npm:6.2.5"
+  dependencies:
     can-use-dom: ^0.1.0
-    core-js: ^3.0.1
-    lodash.debounce: ^4.0.8
-    lodash.memoize: ^4.1.2
-    lodash.throttle: ^4.1.1
-  checksum: 11918d02c946b4925068852b4fb2dcc5008e2fb91b7eeba6c27aed810f23b985de043b12fef674fbffbbfa6201904e09d8fbc29e9959562fa6a5cfb9935751d1
+    simplebar-core: ^1.2.4
+  checksum: 351b3757af18d4d49928fbd44793307ca7384e363c73a740a0e542307f6af75f4803ddbb9e0e595126a487a4ba6b5d98cd397880d7217c6b1b442eb5a6c509c5
   languageName: node
   linkType: hard
 
@@ -17751,13 +17596,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ua-parser-js@npm:^0.7.34":
-  version: 0.7.37
-  resolution: "ua-parser-js@npm:0.7.37"
-  checksum: 9e91a66171aa16c74680cfac84af6ed7ecdeb508ff7c90a55222f56c63172da2d98d2478763e9469c940415fe29c45a56ae51fec1c19a498e7a3b293f7b3b874
-  languageName: node
-  linkType: hard
-
 "ua-parser-js@npm:^1.0.33, ua-parser-js@npm:^1.0.35":
   version: 1.0.37
   resolution: "ua-parser-js@npm:1.0.37"
@@ -18441,13 +18279,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web-streams-polyfill@npm:^3.0.3":
-  version: 3.3.2
-  resolution: "web-streams-polyfill@npm:3.3.2"
-  checksum: 0292f4113c1bda40d8e8ecebee39eb14cc2e2e560a65a6867980e394537a2645130e2c73f5ef6e641fd3697d2f71720ccf659aebaf69a9d5a773f653a0fdf39d
-  languageName: node
-  linkType: hard
-
 "web-vitals@npm:^2.1.0":
   version: 2.1.4
   resolution: "web-vitals@npm:2.1.4"
@@ -18480,15 +18311,6 @@ __metadata:
   version: 7.0.0
   resolution: "webidl-conversions@npm:7.0.0"
   checksum: f05588567a2a76428515333eff87200fae6c83c3948a7482ebb109562971e77ef6dc49749afa58abb993391227c5697b3ecca52018793e0cb4620a48f10bd21b
-  languageName: node
-  linkType: hard
-
-"webrtc-adapter@npm:8.2.0":
-  version: 8.2.0
-  resolution: "webrtc-adapter@npm:8.2.0"
-  dependencies:
-    sdp: ^3.0.2
-  checksum: 67221eac0f01c35f32235b0b988ed27b7e850d03315050a4432f6dc2ff47b8e0535732dfbe5d9718f6a27d46eddc527ca1465e509ba628fdd4c968013fdacb86
   languageName: node
   linkType: hard
 

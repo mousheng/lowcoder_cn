@@ -17,7 +17,7 @@ const defaultHookListValue = [
   { compType: "urlParams", name: "url" },
   { compType: "dayJsLib", name: "dayjs" },
   { compType: "lodashJsLib", name: "_" },
-  { compType: "chcharLib", name: "chchar" },
+  { compType: "pinyinLib", name: "pinyin" },
   { compType: "utils", name: "utils" },
   { compType: "message", name: "message" },
   { compType: "toast", name: "toast" },

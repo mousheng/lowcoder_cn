@@ -33,9 +33,8 @@ import { ToastComp } from "./toastComp";
 import { ThemeComp } from "./themeComp";
 import UrlParamsHookComp from "./UrlParamsHookComp";
 import { UtilsComp } from "./utilsComp";
-import { VideoMeetingControllerComp } from "../comps/meetingComp/videoMeetingControllerComp";
 import { ScreenInfoHookComp } from "./screenInfoComp";
-import cnchar from "cnchar";
+import { pinyin } from 'pinyin-pro';
 import { ConfettiComp } from "../comps/confettiComp";
 
 window._ = _;
@@ -43,7 +42,7 @@ window.dayjs = dayjs;
 
 const LodashJsLib = simpleValueComp(_);
 const DayJsLib = simpleValueComp(dayjs);
-const chcharLib = simpleValueComp(cnchar);
+const pinyinLib = simpleValueComp(pinyin);
 
 const WindowSizeComp = hookToStateComp(useWindowSize);
 
@@ -96,13 +95,13 @@ const HookMap: HookCompMapRawType = {
   lodashJsLib: LodashJsLib,
   dayJsLib: DayJsLib,
   momentJsLib: DayJsLib, // old components use this hook
-  chcharLib: chcharLib,
+  pinyinLib: pinyinLib,
+  chcharLib: pinyinLib,
   utils: UtilsComp,
   message: MessageComp,
   toast: ToastComp,
   localStorage: LocalStorageComp,
   modal: ModalComp,
-  meeting: VideoMeetingControllerComp,
   currentUser: CurrentUserHookComp,
   screenInfo: ScreenInfoHookComp,
   urlParams: UrlParamsHookComp,
@@ -127,8 +126,7 @@ function SelectHookView(props: {
   useEffect(() => {
     if (
       (props.compType !== "modal" &&
-        props.compType !== "drawer" &&
-        props.compType !== "meeting") ||
+        props.compType !== "drawer") ||
       !selectedComp ||
       (editorState.selectSource !== "addComp" &&
         editorState.selectSource !== "leftPanel")
