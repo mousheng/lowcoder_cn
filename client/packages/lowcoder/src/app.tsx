@@ -207,11 +207,10 @@ const AppIndexWithProps = connect(mapStateToProps, mapDispatchToProps)(AppIndex)
 export function bootstrap() {
   initApp();
   loadComps();
-  const container = document.getElementById("root");
-  const root = createRoot(container!);
-  root.render(
+  ReactDOM.render(
     <Provider store={reduxStore}>
       <AppIndexWithProps />
-    </Provider>
+    </Provider>,
+    document.getElementById("root")
   );
 }

@@ -1,5 +1,7 @@
 ## Lowcoder_cn的前生今世
 
+### 这个可能是lowcoder_CN最后一个更新，因为lowcoder上游代码实在合并得太累，而且很多功能是国内用户用不到的而且样式统一性一直做不好，因此，准备重新从Openblocks开分支，吸收lowcoder的好用的功能，并做好性能优化和样式统一。至于时间那肯定不会快，毕竟我只有一双手敲代码，您可以先用这个版本。
+
 **lowcoder**继承自废弃的**openblocks**项目，**openblocks** 则是国内低代码平台**码匠**的开源版，后**码匠**项目下马。后来一个国外公司以openblocks为基础，改名为lowcoder。因改为国外团队维护，导致没有了对国内的数据源支持，甚至中文环境一度都无法运行。作为一款国产低代码平台，居然沦落到无法在中文环境运行，实在令人唏嘘。
 本人试用过appsmith、retool、tooljet、码匠，很早对码匠就挺有兴趣的，跟他们的销售人员聊的时候问及以后没有开源版来二次开发，但一直跟我说没有开源版。后来选择改造 [tooljet](https://github.com/mousheng/tooljet_cn.git),前段时间无意间发现lowcoder原来就是码匠的开源版，于是开始对其进行改造。
 
@@ -16,6 +18,8 @@ Lowcoder_cn（以下简称lowcoder）是[lowcoder](https://github.com/lowcoder-o
 ## 讨论群
 
 ### [查看讨论群二维码](https://lowcoder.mousheng.top/apps/65e499dfaea697211104b3e3/view)
+
+↑↑↑↑↑↑点击查看↑↑↑↑↑↑↑↑
 
 ### 如果群二维码过期可以直接联系我
 
